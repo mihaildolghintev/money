@@ -1,0 +1,32 @@
+<div class="flex justify-center mb-10 align-middle gap-10">
+  <h1 class='text-3xl'>Expenses</h1>
+  <%= link_to 'New Expense', new_expense_path, class: 'bg-yellow-200 hover:bg-yellow-300 rounded p-2' %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Expense category</th>
+      <th>Amount</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr class='hover:bg-yellow-50'>
+        <td><%= expense.created_at.strftime('%d-%m-%Y') %></td>
+        <td><%= expense.expense_category.name %></td>
+        <td><%= number_to_currency expense.amount %></td>
+        <td>
+          <div class='flex justify-center gap-4'>
+            <%= link_to 'Show', expense, class: 'bg-yellow-100 py-1 px-3 rounded' %>
+            <%= link_to 'Edit', edit_expense_path(expense), class: 'bg-gray-200 py-1 px-3 rounded' %>
+            <%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' }, class: 'bg-red-200 py-1 px-3 rounded' %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

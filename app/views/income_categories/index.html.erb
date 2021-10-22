@@ -1,0 +1,37 @@
+<div class='flex justify-center mb-10 align-middle gap-10'>
+  <h1 class='text-3xl'>Income Categories</h1>
+  <%= link_to 'New Category', new_income_category_path, class: 'bg-yellow-200 hover:bg-yellow-300 rounded p-2' %>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @income_categories.each do |income_category| %>
+      <tr class='hover:bg-yellow-50'>
+        <td><%= income_category.name %></td>
+        <td>
+          <div class='flex justify-center gap-4'>
+            <!-- SHOW LINK -->
+            <%= link_to 'Show',
+             income_category,
+              class: 'bg-yellow-100 py-1 px-3 rounded' %>
+            <!-- EDIT LINK -->
+            <%= link_to 'Edit',
+             edit_income_category_path(income_category),
+              class: 'bg-gray-200 py-1 px-3 rounded' %>
+            <!-- DELETE LINK -->
+            <%= link_to 'Destroy',
+             income_category,
+              method: :delete,
+               data: { confirm: 'Are you sure?' },
+                class: 'bg-red-200 rounded py-1 px-3' %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

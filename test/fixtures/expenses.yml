@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  expense_category: one
+  amount: 9.99
+
+two:
+  user: two
+  expense_category: two
+  amount: 9.99

@@ -1,0 +1,20 @@
+
+<p>
+  <strong>User:</strong>
+  <%= @income.user_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @income.income_category_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @income.amount %>
+</p>
+
+<div class='flex justify-center mt-10 align-middle gap-3'>
+  <%= link_to 'Edit', edit_income_path(@income), class: 'hover:bg-yellow-200' %> |
+  <%= link_to 'Back', incomes_path, class: 'hover:bg-yellow-200' %>
+</div>

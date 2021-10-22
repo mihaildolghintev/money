@@ -1,0 +1,25 @@
+<%= form_with(model: income) do |form| %>
+  <% if income.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(income.errors.count, "error") %> prohibited this income from being saved:</h2>
+      <ul>
+        <% income.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="flex flex-col items-stretch">
+    <div class='mb-5'>
+      <%= form.label :income_category_id, class: 'text-sm w-1/4 mr-4' %>
+      <%= form.collection_select :income_category_id, IncomeCategory.order(:name), :id, :name, {}, { class: 'border rounded py-1 px-2 form-select w-3/4' }  %>
+    </div>
+    <div class="mb-10">
+      <%= form.label :amount, class: 'text-sm w-auto mr-4' %>
+      <%= form.number_field :amount, class: 'border rounded py-1 px-2 w-3/4' %>
+    </div>
+    <div class="actions">
+      <%= form.submit class: 'rounded bg-yellow-200 hover:bg-yellow-300 py-1 px-3' %>
+    </div>
+  </div>
+<% end %>

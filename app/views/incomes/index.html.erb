@@ -1,0 +1,32 @@
+<div class="flex justify-center mb-10 align-middle gap-10">
+  <h1 class='text-3xl'>Incomes</h1>
+  <%= link_to 'New Income', new_income_path, class: 'bg-yellow-200 hover:bg-yellow-300 rounded p-2' %>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>Created</th>
+    <th>Category</th>
+    <th>Amount</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @incomes.each do |income| %>
+    <tr class='hover:bg-yellow-50 '>
+      <td><%= income.created_at.strftime('%d-%m-%Y') %></td>
+      <td><%= income.income_category.name %></td>
+      <td><%= number_to_currency income.amount %></td>
+      <td>
+        <div class='flex justify-center gap-4'>
+          <%= link_to 'Show', income, class: 'bg-yellow-100 py-1 px-3 rounded' %>
+          <%= link_to 'Edit', edit_income_path(income), class: 'bg-gray-200 py-1 px-3 rounded' %>
+          <%= link_to 'Destroy', income, method: :delete, data: { confirm: 'Are you sure?' }, class: 'bg-red-200 py-1 px-3 rounded' %>
+        </div>
+      </td>
+      </divfle>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,8 @@
+<h1>Editing Income</h1>
+
+<%= render 'form', income: @income %>
+
+<div class='flex justify-center mt-10 align-middle gap-3'>
+  <%= link_to 'Show', @income, class: 'hover:bg-yellow-200'%> |
+  <%= link_to 'Back', incomes_path, class: 'hover:bg-yellow-200' %>
+</div>
